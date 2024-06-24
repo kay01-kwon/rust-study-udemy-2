@@ -7,26 +7,24 @@
 // 3. Time to clean up! Run `cargo clippy`. Fix up all the warnings so `cargo clippy` is silent.
 
 // Challenge: Clippy doesn't find *everything*. What else would you change to make this code better?
+use std::f32::consts::PI;
 
-#[allow(clippy::excessive_precision)]
-const PI: f64 = 3.141_592_653_589_793_238_46;
+
 fn count_to_5() -> i32 {
-    #[allow(clippy::disallowed_names)]
-    let mut foo = 0;
+    let mut number = 0;
     loop {
-        #[allow(clippy::collapsible_if)]
-        if foo > PI as i32 {
-            if foo > 5 {
+        if number > PI as i32 && number > 5{
                 break;
-            }
         }
-        foo += 1;
+        number += 1;
     }
     5
 }
+
 fn main() {
     println!("I can count to {}", count_to_5());
 }
+
 #[cfg(test)]
 mod test {
     use super::*;
