@@ -19,7 +19,8 @@ fn main() {
     let pairs = vec![(0, 1), (2, 3), (4, 5)];
     pairs
     .into_iter()
-    .map( |(x,y)|{(x+1,y)} )
+    .map( |t|{(t.0+1, t.1)} )
+    // .map(|(x,y)|{(x+1,y)})
     .for_each(|t| println!("{:?}", t));
 
     // 3. Uncomment the code below. There is a mutable vector named `numbers`. Use an iterator over
@@ -42,9 +43,12 @@ fn main() {
     //
     // Hint: .to_uppercase() is a method on `str` which returns a String
 
-    // let words = vec!["autobot", "beach", "car", "decepticon", "energon", "frothy"];
-    // let transformed...  // do the stuff here
-    // println!("Transformed: {:?}", transformed);
+    let words = vec!["autobot", "beach", "car", "decepticon", "energon", "frothy"];
+    let transformed  =  words.into_iter()
+    .filter(|s| !s.contains("h"))
+    .map(|x| x.to_uppercase())
+    .collect::<Vec<_>>();
+    println!("Transformed: {:?}", transformed);
 
     // Challenge:
     //
