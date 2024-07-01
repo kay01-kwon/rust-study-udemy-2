@@ -1,3 +1,5 @@
+use core::num;
+
 // Yes, yes, we know. It's an exercise, compiler, we want it that way!
 #[allow(unused_mut)]
 
@@ -26,10 +28,11 @@ fn main() {
     // Hint 2: `x` will be a mutable reference, so remember to dereference it to use it
 
     let mut numbers = vec![1, 2, 3, 4];
-    // for x in ... {
+    for x in numbers.iter_mut() {
     //     ... // multiply the value by 3 via the mutable reference x
-    // }
-    // println!("{:?}", numbers); // should print [3, 6, 9, 12]
+    (*x)*=3;
+    }
+    println!("{:?}", numbers); // should print [3, 6, 9, 12]
 
     // 4. Uncomment the code below.  Take the vector of words and
     // - Convert the vector into an iterator with .into_iter()
