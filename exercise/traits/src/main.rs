@@ -5,7 +5,7 @@ pub enum Cake {
     Spice,
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug)]
 pub struct Party {
     pub at_restaurant: bool,
     pub num_people: u8,
@@ -27,6 +27,13 @@ impl Default for Party
             num_people: 8,
             cake: Cake::default(),
         }
+    }
+}
+
+impl PartialEq for Party
+{
+    fn eq(&self, other: &Self) -> bool {
+        self.cake == other.cake
     }
 }
 
