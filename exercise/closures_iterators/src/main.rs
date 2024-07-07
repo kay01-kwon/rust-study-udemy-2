@@ -1,5 +1,3 @@
-use core::num;
-
 // Yes, yes, we know. It's an exercise, compiler, we want it that way!
 #[allow(unused_mut)]
 
